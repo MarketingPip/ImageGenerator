@@ -1,18 +1,17 @@
-name: React app deployement
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+name: main
+on: [push]
 
 jobs:
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
-    
+    name: Build and test
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Deploy react app to github pages
-      uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+      - uses: bahmutov/npm-install@v1
+      - name: App1 tests
+        run: npm install
+      - name: Run app2
+        run: npm run start
+      - name: Deploy react app to github pages
+        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
