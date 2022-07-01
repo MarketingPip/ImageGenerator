@@ -26,7 +26,13 @@ const generateHTML = async (
 };
 
 const renderHTML = async (htmlCode: string): Promise<any> => {
-  const browser = await puppeteer.launch({executablePath: process.env.PATH_TO_CHROME});
+  
+  const browser = await puppeteer.launch({
+            executablePath: process.env.PATH_TO_CHROME,
+            args: ['--no-sandbox'],
+            headless: true,
+            timeout: 0
+        });
   const page = await browser.newPage();
   await page.setContent(htmlCode);
   await page.setViewport({ width: 1200, height: 630 });
