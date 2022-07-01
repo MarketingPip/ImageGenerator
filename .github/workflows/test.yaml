@@ -13,7 +13,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - name: App1 tests
         run: npm install
-      - name: Run app2
-        run: npm run start
+    #  - name: Run app2
+   #     run: npm run start
       - name: Deploy react app to github pages
         uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
