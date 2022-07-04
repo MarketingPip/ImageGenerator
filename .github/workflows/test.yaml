@@ -8,18 +8,36 @@ jobs:
     steps:
       - uses: actions/checkout@v2
  
- 
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+      - name: Cache
+        uses: actions/cache@v2.1.2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('./app/package-lock.json') }}
+          restore-keys: npm-
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+    #      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: ./app/build
 
-      - uses: bahmutov/npm-install@v1
-      - name: App1 tests
-        run: npm install
-      - name: Install GitHub Pages Packages
-        run: npm install gh-pages --save-dev
-      - name: Remove Orgin
-        run: git remote rm origin
-      - name: Add Orgin
-        run: git remote add origin https://github.com/MarketingPip/ImageGenerator.git
+     # - uses: bahmutov/npm-install@v1
+     # - name: App1 tests
+     #   run: npm install
+     # - name: Install GitHub Pages Packages
+     #   run: npm install gh-pages --save-dev
+     # - name: Remove Orgin
+     #   run: git remote rm origin
+     # - name: Add Orgin
+     #   run: git remote add origin https://github.com/MarketingPip/ImageGenerator.git
     #  - name: Run app2
    #     run: npm run start
-      - name: Deploy react app to github pages
-        run: npm run deploy
+     # - name: Deploy react app to github pages
+      #  run: npm run deploy
