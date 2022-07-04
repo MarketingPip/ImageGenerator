@@ -20,7 +20,7 @@ jobs:
           key: npm-${{ hashFiles('./app/package-lock.json') }}
           restore-keys: npm-
       - run: npm ci
-      - run: npm run build
+      - run: npm run start
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
