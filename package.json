@@ -5,10 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build",
-    "start": "ts-node ./index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+          "start": "parcel serve index.html",
+        "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+        "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +17,15 @@
     "@types/nunjucks": "^3.2.1",
     "dotenv": "^16.0.1",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+     "cross-env": "^5.2.0",
+        "gh-pages": "^1.2.0",
+        "parcel-bundler": "^1.9.7"
   },
   "dependencies": {
     "nunjucks": "^3.2.3",
     "puppeteer": "^15.0.0",
+    
     "puppeteer-core": "^5.5.0",
     "puppeteer-serverless": "^2.0.0"
   }
