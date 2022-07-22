@@ -38,10 +38,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = require("fs");
-var puppeteer_serverless_1 = require("puppeteer-serverless");
-require("dotenv/config");
-var nunjucks = require("nunjucks");
+import puppeteer_serverless_1 from 'https://cdn.jsdelivr.net/npm/puppeteer-serverless@2.0.0/lib/index.min.js';
+    
+ import dotenv_config from 'https://cdn.jsdelivr.net/npm/dotconfigure@2.0.1/lib/dotconfig.min.js';   
+    import nunjucks from 'https://cdn.jsdelivr.net/npm/nunjucks@3.2.3/browser/nunjucks.min.js';    
+    
+
 var generateHTML = function (type, content) { return __awaiter(void 0, void 0, Promise, function () {
     var fileText, generatedHTML;
     return __generator(this, function (_a) {
