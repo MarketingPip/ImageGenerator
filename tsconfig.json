@@ -19,7 +19,7 @@
         "noFallthroughCasesInSwitch": true
     },
     "include": [
-        "/**/*"
+        "./"
     ],
     "exclude": [
         ".git",
