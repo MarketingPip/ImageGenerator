@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import { promises as fs } from 'fs';
 import puppeteer from "puppeteer-serverless";
 import 'dotenv/config';
 import * as nunjucks from "nunjucks";
