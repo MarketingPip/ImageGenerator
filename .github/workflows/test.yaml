@@ -1,26 +1,20 @@
-name: main
+name: CI
 on: [push]
-
 jobs:
-  build-and-test:
+  build:
+    name: Test
     runs-on: ubuntu-latest
-    name: Build and test
     steps:
       - uses: actions/checkout@v2
- 
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+      - uses: borales/actions-yarn@v3.0.0
         with:
-          node-version: "12"
-      - name: Cache
-        uses: actions/cache@v2.1.2
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v3.0.0
         with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('./app/package-lock.json') }}
-          restore-keys: npm-
-      - run: npm ci
-      - run: npm build
+          cmd: build # will run `yarn build` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: deploy  
    #   - name: Deploy 🚀
     #    uses: JamesIves/github-pages-deploy-action@3.7.1
      #   with:
