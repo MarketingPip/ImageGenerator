@@ -17,10 +17,10 @@ jobs:
         uses: actions/cache@v2.1.2
         with:
           path: ~/.npm
-          key: npm-${{ hashFiles('./app/package-lock.json') }}
+          key: npm-${{ hashFiles('./package-lock.json') }}
           restore-keys: npm-
-      - run: npm ci
       - run: npm install
+      - run: npm ci
       - run: npm build
     
     
