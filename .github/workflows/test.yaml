@@ -5,6 +5,25 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+    
+      - uses: actions/checkout@v2
+ 
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+      - name: Cache
+        uses: actions/cache@v2.1.2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('./app/package-lock.json') }}
+          restore-keys: npm-
+      - run: npm ci
+      - run: npm install
+      - run: npm build
+    
+    
       - uses: actions/checkout@v2
       - uses: borales/actions-yarn@v3.0.0
         with:
